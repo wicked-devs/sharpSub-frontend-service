@@ -12,7 +12,7 @@ h6 {
   letter-spacing: -1px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #fffefe;
+  color: var(--text-color);
 }
 
 h1 {
@@ -27,7 +27,7 @@ h2 {
 a {
   color: var(--body-color);
   font-size: 16px;
-  color: #fffefe;
+  color: var(--text-color);
 }
 
 p,
@@ -36,10 +36,9 @@ label {
   line-height: 1.6;
   font-weight: 500;
   line-break: normal;
-  color: #fffefe !important;
+  color: var(--text-color);
 }
-input::placeholder {
-}
+
 
 @media (max-width: 1000px) {
   /* h1,
