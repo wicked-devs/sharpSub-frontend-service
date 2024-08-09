@@ -1,7 +1,7 @@
 <template>
-    <auth/>
+    <home/>
 </template>
 
 <script setup>
-import auth from "./auth"
+import home from "./home"
 </script>

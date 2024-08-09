@@ -50,9 +50,13 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const { $confetti } = useNuxtApp();
+
 import ToastNotification from "../general/toastNotification.vue";
 const toasts = ref([]);
 
+const router = useRouter();
 const showToast = (type, title, description) => {
   toasts.value.push({ type, title, description, timer: 5000 });
 };
@@ -61,9 +65,29 @@ const removeToast = (index) => {
   toasts.value.splice(index, 1);
 };
 
-function success() {
-  showToast("success", "Success", "This is a success message!");
-}
+const launchConfetti = () => {
+  $confetti({
+    particleCount: 300,
+    angle: 60,
+    spread: 360,
+    origin: { x: 0 },
+    colors: ["#1ed760", "#1ed760"],
+    shapes: ["square", "circle"],
+    gravity: 1,
+    scalar: 1.2,
+  });
+
+  $confetti({
+    particleCount: 300,
+    angle: 60,
+    spread: 360,
+    origin: { x: 1 },
+    colors: ["#1ed760", "#1ed760"],
+    shapes: ["square", "circle"],
+    gravity: 1,
+    scalar: 1.2,
+  });
+};
 
 const fullname = ref("");
 const username = ref("");
@@ -71,12 +95,6 @@ const phone = ref("");
 const email = ref("");
 const password = ref("");
 const role = ref("User");
-
-//Options for the select tag
-const options = [
-  { value: "Merchant", label: "Merchant" },
-  { value: "Transporter", label: "Transporter" },
-];
 
 const handleSignup = async () => {
   try {
@@ -106,6 +124,11 @@ const handleSignup = async () => {
     const data = await response.json();
     console.log("Success:", data);
     showToast("success", "Signup Successful", `${data.message}`);
+    launchConfetti(); //Launch Confetti
+
+    setTimeout(() => {
+      router.push("/auth/verify-email"); // Delay redirection by 5 seconds
+    }, 5000);
   } catch (err) {
     console.error("Unexpected error:", err);
   }

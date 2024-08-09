@@ -7,14 +7,23 @@
           A link has been sent to your email, click on it to verify your email
         </h3>
         <div class="form-group">
-          <button class="btn-primary">Sign In</button>
+          <button class="btn-primary" @click="routeUSer" @click.prevent>
+            Sign In
+          </button>
         </div>
       </form>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const routeUSer = () => {
+  router.push("/auth/login");
+};
+</script>
 
 <style scoped>
 .container {
