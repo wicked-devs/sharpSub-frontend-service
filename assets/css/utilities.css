@@ -73,9 +73,3 @@ hr {
     height: 80px !important;
     width: 80px !important;
 }
-
-.transporter-not-selected {
-    background-image: url("@/assets/images/transporter-not-selected.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}

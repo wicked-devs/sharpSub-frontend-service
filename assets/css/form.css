@@ -96,15 +96,6 @@ select {
   border-radius: 50%;
 }
 
-.upload {
-  position: relative;
-  background-image: url("@/assets/icons/User-Dashboard/upload.svg");
-  height: 18px !important;
-  width: 18px !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .faded-background {
   border-radius: var(--border-radius);
   background-color: var(--faded-background);
