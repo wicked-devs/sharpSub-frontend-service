@@ -3,9 +3,9 @@
       <div class="center mt-5">
         <h1 class="weight-6 mb-1">Check Your Email</h1>
         <form class="center">
-          <h3 class="weight-5">
+          <p class="weight-5 center">
             A link has been sent to your email, click on it to reset your password
-          </h3>
+          </p>
           <div class="form-group">
             <button class="btn-primary">Resend Email</button>
           </div>
@@ -20,7 +20,7 @@
   .container {
     height: 100vh;
   }
-  h3 {
+  p {
     color: #8b8b8a;
   }
   </style>

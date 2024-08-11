@@ -34,7 +34,7 @@
       <button class="btn-primary" type="submit">Sign Up</button>
     </div>
     <input type="hidden" v-model="role" />
-    <p>Already have an account? <a href="#" class="nested-link">Sign In</a></p>
+    <p>Already have an account? <a href="/auth/login" class="nested-link">Sign In</a></p>
 
     <ToastNotification
       v-for="(toast, index) in toasts"

@@ -11,7 +11,7 @@
     <div class="form-group">
       <button class="btn-primary" type="submit">Sign In</button>
     </div>
-    <p>Don't have an account? <a href="#" class="nested-link">Sign Up</a></p>
+    <p>Don't have an account? <a href="/auth/signup" class="nested-link">Sign Up</a></p>
     <!-- <p>{{ userStore.accessToken }}</p>   -->
     <ToastNotification
       v-for="(toast, index) in toasts"

@@ -1,7 +1,7 @@
 <template>
   <nav class="pt-3 pb-3">
     <main>
-      <img src="@/assets/images/SharpSub.svg" alt="" />
+      <img src="@/assets/images/SharpSub.svg" alt="" class="logo">
 
       <div class="menu" @click="toggleMenu">
         <div :class="{ bar1: isOpen, bar: !isOpen }"></div>
@@ -68,7 +68,7 @@ main .menu .bar3 {
   width: 30px;
   height: 3px;
   transition: 0.4s;
-  background-color: #fff;
+  background-color: var(--text-color) !important;
 }
 
 main .menu .bar1 {
@@ -86,6 +86,9 @@ main .menu .bar3 {
 main .container .cta {
   display: flex;
   gap: 12px;
+}
+a button{
+  color: var(--primary-color) !important;
 }
 
 @media (max-width: 1000px) {
