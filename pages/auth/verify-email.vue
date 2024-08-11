@@ -26,9 +26,6 @@ const routeUSer = () => {
 </script>
 
 <style scoped>
-.container {
-  height: 100vh;
-}
 p {
   color: #8b8b8a;
 }
