@@ -33,7 +33,7 @@ importers:
         specifier: ^3.2.1
         version: 3.2.1(pinia@2.2.1(vue@3.4.36))
       vue:
-        specifier: latest
+        specifier: ^3.4.36
         version: 3.4.36
 
 packages:
