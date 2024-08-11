@@ -14,6 +14,7 @@
   <style scoped>
   .container {
     height: 100vh;
+    width: 100vw !important;
   }
   </style>
   

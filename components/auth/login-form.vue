@@ -12,7 +12,7 @@
       <button class="btn-primary" type="submit">Sign In</button>
     </div>
     <p>Don't have an account? <a href="#" class="nested-link">Sign Up</a></p>
-    <!-- <p>{{ userStore.accessToken }}</p> -->
+    <!-- <p>{{ userStore.accessToken }}</p>   -->
     <ToastNotification
       v-for="(toast, index) in toasts"
       :key="index"
@@ -110,4 +110,5 @@ const handleLogin = async () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
