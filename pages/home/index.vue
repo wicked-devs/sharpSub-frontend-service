@@ -26,7 +26,7 @@
           </div> -->
         </div>
 
-        <img src="@/assets/images/girl.svg" alt="" />
+        <img src="@/assets/images/hero.webp" alt="" />
       </div>
     </main>
   </NuxtLayout>
@@ -64,13 +64,15 @@
   color: #8a8a8a;
 }
 form {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+ justify-content: space-between;
   border: 1px solid #8a8b8b;
   padding: 5px !important;
   border-radius: 8px;
+  width:fit-content !important;
   background: #111010;
 }
+
 form input {
   background: none !important;
 }
@@ -91,9 +93,11 @@ form input:focus {
   }
 }
 @media (max-width: 1200px) {
-  form {
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; */
-    grid-template-columns: auto;
+}
+@media(max-width:768px){
+  form{
+    width:100% !important;
   }
 }
+
 </style>

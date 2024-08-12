@@ -1,7 +1,7 @@
 <template>
-  <nav class="pt-3 pb-3">
+  <nav class="pt-3 pb-3 mb-5">
     <main>
-      <img src="@/assets/images/SharpSub.svg" alt="" class="logo">
+      <img src="@/assets/images/logo.svg" alt="" class="logo">
 
       <div class="menu" @click="toggleMenu">
         <div :class="{ bar1: isOpen, bar: !isOpen }"></div>
@@ -39,7 +39,8 @@ export default {
 <style scoped>
 nav {
   position: sticky;
-  top: 0;
+  top: 0; 
+  width:100%;
   background-color: var(--primary-color);
 
   @media (min-width: 2000px) {
