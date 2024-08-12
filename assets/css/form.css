@@ -21,7 +21,7 @@ form > .container {
 
 form .form-group {
   display: grid;
-  gap: 4px;
+  /* gap: 4px; */
   width: 100%;
 }
 
