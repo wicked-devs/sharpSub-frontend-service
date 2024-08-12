@@ -1,18 +1,33 @@
 <template>
   <form class="center" @submit.prevent="handleLogin">
     <div class="form-group">
-      <label for="">Email</label>
+      <label for="email">Email</label>
       <input type="email" placeholder="me@sharpsub.com" v-model="email" />
     </div>
     <div class="form-group">
-      <label for="">Password</label>
-      <input type="password" placeholder="********" v-model="password" />
+      <label for="password">Password</label>
+      <div class="password-input-container">
+        <input
+          :type="isPasswordVisible ? 'text' : 'password'"
+          placeholder="********"
+          v-model="password"
+          required
+        />
+        <img
+          :src="isPasswordVisible ? eyeOpenIcon : eyeClosedIcon"
+          @click="togglePasswordVisibility"
+          alt="Toggle Password Visibility"
+          class="password-toggle-icon"
+        />
+      </div>
     </div>
     <div class="form-group">
       <button class="btn-primary" type="submit">Sign In</button>
     </div>
+
     <p>Don't have an account? <a href="/auth/signup" class="nested-link">Sign Up</a></p>
-    <!-- <p>{{ userStore.accessToken }}</p>   -->
+
+    <!-- Toast Notifications -->
     <ToastNotification
       v-for="(toast, index) in toasts"
       :key="index"
@@ -30,11 +45,22 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/stores/user";
 
+// Import icons directly
+import eyeOpenIcon from '@/assets/icons/eye-open.svg';
+import eyeClosedIcon from '@/assets/icons/eye-closed.svg';
+
 const userStore = useUserStore(); // Use the store
 const email = ref("");
 const password = ref("");
 const toasts = ref([]);
 const router = useRouter();
+
+// Password visibility toggle
+const isPasswordVisible = ref(false);
+
+const togglePasswordVisibility = () => {
+  isPasswordVisible.value = !isPasswordVisible.value;
+};
 
 import ToastNotification from "../general/toastNotification.vue";
 
@@ -95,15 +121,10 @@ const handleLogin = async () => {
     console.log("Success:", data);
     showToast("success", "Login Successful", `${data.message}`);
     launchConfetti();
-    // console.log(data.data.accessToken)
 
     // Save the access token to the store
     userStore.setAccessToken(data.data.access_token);
     console.log("Access Token:", userStore.accessToken);
-
-    // setTimeout(() => {
-    //   router.push("/");
-    // }, 5000);
   } catch (err) {
     console.error("Unexpected error:", err);
   }
@@ -111,4 +132,23 @@ const handleLogin = async () => {
 </script>
 
 <style scoped>
+/* Styling the password input container to position the icon inside the input field */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 40px; /* Adjust padding to make space for the icon */
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
 </style>

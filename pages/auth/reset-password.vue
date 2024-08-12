@@ -4,28 +4,73 @@
       <h1 class="weight-6 mb-1">Reset Password</h1>
       <form class="center">
         <div class="form-group">
-          <label for="">Password</label>
-          <input type="password" placeholder="********" />
+          <label for="password">Password</label>
+          <div class="password-input-container">
+            <input :type="isPasswordVisible ? 'text' : 'password'" placeholder="********" v-model="password" required />
+            <img :src="isPasswordVisible ? eyeOpenIcon : eyeClosedIcon" @click="togglePasswordVisibility"
+              alt="Toggle Password Visibility" class="password-toggle-icon" />
+          </div>
         </div>
         <div class="form-group">
-          <label for="">Confirm Password</label>
-          <input type="password" placeholder="********" />
+          <label for="confirm-password">Confirm Password</label>
+          <div class="password-input-container">
+            <input :type="isConfirmPasswordVisible ? 'text' : 'password'" placeholder="********"
+              v-model="confirmPassword" required />
+            <img :src="isConfirmPasswordVisible ? eyeOpenIcon : eyeClosedIcon" @click="toggleConfirmPasswordVisibility"
+              alt="Toggle Password Visibility" class="password-toggle-icon" />
+          </div>
         </div>
         <div class="form-group">
-          <button class="btn-primary">Sign In</button>
+          <button class="btn-primary" type="submit">Reset Password</button>
         </div>
       </form>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+// Import icons directly
+import eyeOpenIcon from '@/assets/icons/eye-open.svg';
+import eyeClosedIcon from '@/assets/icons/eye-closed.svg';
+
+// Password visibility toggle
+const isPasswordVisible = ref(false);
+const isConfirmPasswordVisible = ref(false);
+
+const togglePasswordVisibility = () => {
+  isPasswordVisible.value = !isPasswordVisible.value;
+};
+
+const toggleConfirmPasswordVisibility = () => {
+  isConfirmPasswordVisible.value = !isConfirmPasswordVisible.value;
+};
+
+// Form data
+const password = ref("");
+const confirmPassword = ref("");
+</script>
 
 <style scoped>
-.container {
-  height: 100vh;
+/* Styling the password input container to position the icon inside the input field */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-h3 {
-  color: #8b8b8a;
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 40px;
+  /* Adjust padding to make space for the icon */
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 </style>
