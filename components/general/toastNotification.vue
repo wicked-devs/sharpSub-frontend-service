@@ -53,7 +53,7 @@ const props = defineProps({
   },
   timer: {
     type: Number,
-    default: 5000,
+    default: 2000,
   },
 });
 

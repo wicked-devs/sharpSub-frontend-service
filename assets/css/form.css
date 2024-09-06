@@ -21,7 +21,7 @@ form > .container {
 
 form .form-group {
   display: grid;
-  /* gap: 4px; */
+  gap: 8px;
   width: 100%;
 }
 
@@ -86,17 +86,39 @@ select {
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.03);
 }
 
-form button {
-  border-radius: 8px;
-  padding: 8px 16px;
-  height: 42px fit-content;
-}
 
 button {
   border-radius: 8px !important;
   padding: 8px 16px;
   cursor: pointer;
+height: 42px fit-content;
 }
+
+/* Styling the password input container to position the icon inside the input field */
+form .password-visible {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+form .password-visible input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+
+
+form .password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+
+
 
 .btn-primary {
   background-color: var(--secondary-color);
